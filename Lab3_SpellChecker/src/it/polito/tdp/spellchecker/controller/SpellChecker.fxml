@@ -10,8 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="it.polito.tdp.spellchecker.controller.SpellCheckerController">
+<BorderPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polito.tdp.spellchecker.controller.SpellCheckerController">
    <top>
       <Label text="Lab03_SpellChecker" BorderPane.alignment="CENTER">
          <BorderPane.margin>
@@ -31,7 +30,7 @@
                               <Insets left="20.0" />
                            </HBox.margin>
                         </Label>
-                        <ChoiceBox prefWidth="150.0" />
+                        <ChoiceBox fx:id="choiceLanguage" prefWidth="150.0" />
                      </children>
                      <BorderPane.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -39,7 +38,7 @@
                   </HBox>
                </top>
                <center>
-                  <TextArea BorderPane.alignment="CENTER">
+                  <TextArea fx:id="txtText" BorderPane.alignment="CENTER">
                      <BorderPane.margin>
                         <Insets left="10.0" right="10.0" />
                      </BorderPane.margin>
@@ -65,7 +64,7 @@
                   </Label>
                </top>
                <center>
-                  <TextArea BorderPane.alignment="CENTER">
+                  <TextArea fx:id="txtResult" BorderPane.alignment="CENTER">
                      <BorderPane.margin>
                         <Insets left="10.0" right="10.0" />
                      </BorderPane.margin>

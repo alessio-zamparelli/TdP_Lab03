@@ -18,7 +18,11 @@ public class Dictionary {
 	public Dictionary() {
 		this.dict = new ArrayList<RichWord>();
 	}
-
+	
+	public Dictionary(List<RichWord> listWords) {
+		this.dict = listWords;
+	}
+	
 	public void loadDictionary(String language) {
 
 		String languageFile = "rsc/" + language + ".txt";
