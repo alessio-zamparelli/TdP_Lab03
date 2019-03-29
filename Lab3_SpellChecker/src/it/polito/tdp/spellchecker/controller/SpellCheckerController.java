@@ -65,6 +65,10 @@ public class SpellCheckerController {
 		
 		txtText.setText(res.toString());
 		
+		/*
+		 * va messo il discorso dizionario giusto dizionario sbagliato
+		 */
+		
 		txtResult.setText(model.getCorrect());
 		
 		return;
