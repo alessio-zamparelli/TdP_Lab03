@@ -75,7 +75,7 @@
                      <children>
                         <HBox alignment="CENTER" spacing="10.0" AnchorPane.rightAnchor="0.0">
                            <children>
-                              <Label text="0 Errors" textFill="#f23030" />
+                              <Label fx:id="lblErrors" text="0 Errors" textFill="#f23030" />
                               <Button mnemonicParsing="false" onAction="#doClearText" text="Clear Text" />
                            </children>
                            <padding>
@@ -95,7 +95,7 @@
    <bottom>
       <AnchorPane BorderPane.alignment="CENTER">
          <children>
-            <Label text="Completed time" />
+            <Label fx:id="lblComplTime" text="Completed time" />
          </children>
          <BorderPane.margin>
             <Insets top="10.0" />

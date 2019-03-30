@@ -11,10 +11,22 @@ public class TestClass {
 
 	public static void main(String[] args) {
 		TestClass test = new TestClass();
-		test.run();
+		test.run2();
 
 	}
 
+	public void run2() {
+		
+		long num = 214362801;
+		Double d = new Double(num);
+		d = d/1000000000;
+		System.out.println(String.format("%.9f", d));
+//		num = num/1000000000;
+//		System.out.println(Long.toString(num));
+		
+		
+//		System.out.println(String.format("%.9f", new Float(num/1000000000)));
+	}
 	public void run() {
 
 		Dictionary dict = new Dictionary();
@@ -56,5 +68,7 @@ public class TestClass {
 		System.out.println(inDictionary.getCorrect());
 		System.out.println(inDictionary.getWrong());
 
+		
+		
 	}
 }

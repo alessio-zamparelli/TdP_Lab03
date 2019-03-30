@@ -14,19 +14,20 @@ import java.util.stream.Collectors;
 public class Dictionary {
 
 	private List<RichWord> dict;
+	private String language = "";
 
 	public Dictionary() {
 		this.dict = new ArrayList<RichWord>();
 	}
-	
+
 	public Dictionary(List<RichWord> listWords) {
 		this.dict = listWords;
 	}
-	
+
 	public void loadDictionary(String language) {
 
 		String languageFile = "rsc/" + language + ".txt";
-
+		this.language = language;
 		try {
 
 			FileReader fr = new FileReader(languageFile);
@@ -65,16 +66,26 @@ public class Dictionary {
 	}
 
 	public List<RichWord> getCorrect() {
-		return this.dict.stream().filter(a->a.isCorrect()).collect(Collectors.toList());
+		return this.dict.stream().filter(a -> a.isCorrect()).collect(Collectors.toList());
 	}
 
 	public List<RichWord> getWrong() {
-		return this.dict.stream().filter(a->!a.isCorrect()).collect(Collectors.toList());
+		return this.dict.stream().filter(a -> !a.isCorrect()).collect(Collectors.toList());
 	}
 
 	@Override
 	public String toString() {
 		return String.format("Dictionary [dict=%s]\n", dict);
+	}
+
+	public void clear() {
+		this.dict.clear();
+		this.language = "";
+
+	}
+
+	public String getLanguage() {
+		return this.language;
 	}
 
 }
