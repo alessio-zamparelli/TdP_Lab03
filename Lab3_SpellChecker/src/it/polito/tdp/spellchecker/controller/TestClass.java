@@ -2,8 +2,6 @@ package it.polito.tdp.spellchecker.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-
 import it.polito.tdp.spellchecker.model.Dictionary;
 import it.polito.tdp.spellchecker.model.RichWord;
 
@@ -93,7 +91,7 @@ public class TestClass {
 		inputTextList.add("figa");
 		inputTextList.add("bella");
 		inputTextList.add("donna");
-		List<RichWord> res = dict.spellCheckText(inputTextList);
+//		List<RichWord> res = dict.spellCheckText(inputTextList);
 //		System.out.println("caricata la lista");
 //		
 //		System.out.println("\n\n\n\n");
