@@ -9,6 +9,8 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 public class Dictionary {
@@ -49,8 +51,7 @@ public class Dictionary {
 	 */
 	public List<RichWord> spellCheckText(List<String> inputTextList) {
 
-		Collections.sort(inputTextList);
-		Set<String> inputTextSet = new HashSet<String>(inputTextList);
+		SortedSet<String> inputTextSet = new TreeSet<String>(inputTextList);
 		List<RichWord> res = new LinkedList<RichWord>();
 
 		for (String word : inputTextSet) {
@@ -62,6 +63,60 @@ public class Dictionary {
 		}
 
 		return res;
+
+	}
+
+	public List<RichWord> spellCheckTextLinear(List<String> inputTextList) {
+
+		SortedSet<String> inputTextSet = new TreeSet<String>(inputTextList);
+		List<RichWord> res = new LinkedList<RichWord>();
+		boolean find = false;
+
+		for (String inString : inputTextSet) {
+			find = false;
+			for (RichWord dictWord : dict) {
+				if (inString.equals(dictWord.getWord())) {
+					res.add(dictWord);
+					find = true;
+					break;
+				}
+			}
+			if (!find)
+				res.add(new RichWord(inString, false));
+		}
+
+		return res;
+
+	}
+
+	public List<RichWord> spellCheckTextDicotomic(List<String> inputTextList) {
+
+		SortedSet<String> inputTextSet = new TreeSet<String>(inputTextList);
+		List<RichWord> res = new LinkedList<RichWord>();
+
+		for (String inWord : inputTextSet)
+			res.add(dicotomicSearch(inWord, 0, dict.size() - 1));
+
+		return res;
+
+	}
+
+	public RichWord dicotomicSearch(String inWord, int p, int q) {
+
+		int k = (p + q) / 2;
+		String dictWord = this.dict.get(k).getWord();
+//		System.out.format("in ingresso: %s con diz: %s\n", inWord, dictWord);
+		// se ho trovato la parola esco
+		if (dictWord.equals(inWord))
+			return this.dict.get(k);
+		// se sono arrivato alla fine senza trovare la parola che cercavo
+		if (p >= q)
+			return new RichWord(inWord, false);
+
+		if (dictWord.compareTo(inWord) > 0) // parola piu piccola
+			return dicotomicSearch(inWord, p, k - 1);
+		else // parola piu grande
+			return dicotomicSearch(inWord, k + 1, q);
 
 	}
 

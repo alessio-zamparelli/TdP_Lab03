@@ -59,19 +59,12 @@ public class SpellCheckerController {
 			System.out.println("caricato il dizionario " + selectedLang);
 		}
 
-//		List<String> strings = Arrays.asList(txtText.getText().split(" "));
-//		List<String> strings = new ArrayList<String>(Arrays.asList(txtText.getText().split(" ")));
-//		strings.stream().forEach(a->a.replaceAll("[.,\\/#!$%\\^&\\*;:{}=\\-_`~()\\[\\]\"]", ""));
-//		System.out.println(strings);
 		List<String> words = new ArrayList<String>();
-//		strings.forEach(a->words.add(a));
-//		txtText.setText(strings.toString());
 		for (String s : txtText.getText().split(" ")) {
 			s = s.replaceAll("[.,\\/#!$%\\^&£\\*;:{}=\\-_`~()\\[\\]\"]", "");
 			words.add(s);
 		}
-//		txtText.setText(words.toString());
-
+		
 		List<RichWord> res = model.spellCheckText(words);
 
 		List<String> wrongWords = res.stream()

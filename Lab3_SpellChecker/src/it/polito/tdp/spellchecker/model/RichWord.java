@@ -33,7 +33,7 @@ public class RichWord {
 
 	@Override
 	public String toString() {
-		return String.format("RichWord [word=%s]", word);
+		return String.format("RichWord [word=%s correct=%s]", word, correct);
 	}
 
 	@Override

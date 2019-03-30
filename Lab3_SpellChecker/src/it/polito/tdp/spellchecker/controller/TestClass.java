@@ -11,10 +11,57 @@ public class TestClass {
 
 	public static void main(String[] args) {
 		TestClass test = new TestClass();
-		test.run2();
+		test.run3();
 
 	}
 
+	
+	public void run3() {
+		List<String> inList = new ArrayList<>();
+		inList.add("ciao");
+		inList.add("come");
+		inList.add("ciao");
+		inList.add("come");
+		inList.add("ciao");
+		inList.add("stai");
+		inList.add("staii");
+		inList.add("figa");
+		inList.add("bella");
+		inList.add("donna");
+		
+		Dictionary dict = new Dictionary();
+		String language = "Italian";
+		dict.loadDictionary(language);
+		
+		System.out.println("Caricato il dizionario italiano");
+		
+		double startTime;
+		List<RichWord> dicotomicRes;
+		List<RichWord> linearRes;
+		List<RichWord> standardRes;
+		
+		startTime = System.nanoTime();
+		dicotomicRes = dict.spellCheckTextDicotomic(inList);
+		double elapsedTime = System.nanoTime()-startTime;
+		System.out.format("Sono trascorsi %10.0f nanosecondi con la ricerca dicotomica\n", elapsedTime);
+		
+		startTime = System.nanoTime();
+		linearRes = dict.spellCheckTextLinear(inList);
+		elapsedTime = System.nanoTime()-startTime;
+		System.out.format("Sono trascorsi %10.0f nanosecondi con la ricerca lineare\n", elapsedTime);
+
+		startTime = System.nanoTime();
+		standardRes = dict.spellCheckText(inList);
+		elapsedTime = System.nanoTime()-startTime;
+		System.out.format("Sono trascorsi %10.0f nanosecondi con la ricerca standard\n", elapsedTime);
+		
+		System.out.format("risDicotomica %s\n", dicotomicRes);
+		System.out.format("risLineare    %s\n", linearRes);
+		System.out.format("risStandard   %s\n", standardRes);
+		
+		
+		
+	}
 	public void run2() {
 		
 		long num = 214362801;
